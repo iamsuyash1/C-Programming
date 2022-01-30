@@ -1,0 +1,8 @@
+Important points
+
+The file needs to be opened for write operations
+buf needs to be at least as long as specified by cnt because if buf size less than the cnt then buf will lead to the overflow condition.
+cnt is the requested number of bytes to write, while the return value is the actual number of bytes written. This happens when fd have a less number of bytes to write than cnt.
+If write() is interrupted by a signal, the effect is one of the following:
+-If write() has not written any data yet, it returns -1 and sets errno to EINTR.
+-If write() has successfully written some data, it returns the number of bytes it wrote before it was interrupted
